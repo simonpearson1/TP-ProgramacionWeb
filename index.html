@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AutosYa!</title>
+  <link rel="stylesheet" href="TP(CSS).css"/>
+</head>
+<body>
+
+  <header> 
+    <nav>
+      <a href="#inicio" class="linknav"> Inicio </a>
+      <a href="#ficha-reserva" class="linknav"> Reservar </a>
+      <a href="#condiciones" class="linknav"> Requisitos </a>
+      <a href="#vehiculos" class="linknav"> Vehiculos </a>
+      <a href="#ubicaciones" class="linknav"> Ubicaciones </a>
+      <a href="#contacto" class="linknav"> Contacto </a>
+      <button id="carrito-btn" class="linknav"> Carrito (<span id="carrito-cantidad">0</span>)</button>
+    </nav>
+  </header>
+
+  <div id="carrito-modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h3>Tu Carrito</h3>
+      
+      <div class="agregar-item">
+        <h4>Agregar Vehículo</h4>
+        <select id="auto-select">
+          <option value="">Selecciona un auto</option>
+          <optgroup label="Compacto">
+            <option value="peugeot-208">Peugeot 208 - $50.000</option>
+            <option value="ford-focus">Ford Focus - $55.000</option>
+          </optgroup>
+          <optgroup label="Mediano">
+            <option value="volkswagen-vento">Volkswagen Vento - $60.000</option>
+            <option value="toyota-corolla">Toyota Corolla - $65.000</option>
+          </optgroup>
+          <optgroup label="Económico">
+            <option value="renault-kwid">Renault Kwid - $45.000</option>
+            <option value="fiat-cronos">Fiat Cronos - $48.000</option>
+          </optgroup>
+          <optgroup label="SUV">
+            <option value="toyota-sw4">Toyota SW4 - $80.000</option>
+            <option value="chevrolet-tracker">Chevrolet Tracker - $75.000</option>
+          </optgroup>
+          <optgroup label="Deportivo">
+            <option value="audi-sq3">Audi SQ3 - $100.000</option>
+            <option value="bmw-340i">BMW M340i - $110.000</option>
+          </optgroup>
+          <optgroup label="Elite">
+            <option value="porsche-911">Porsche 911 - $150.000</option>
+          </optgroup>
+        </select>
+        <button id="agregar-btn">Agregar al Carrito</button>
+      </div>
+      
+      <div id="carrito-items"></div>
+      
+      <div id="carrito-total">Total: $0</div>
+      
+      <div class="carrito-acciones">
+        <button id="vaciar-btn">Vaciar Carrito</button>
+        <button id="checkout-btn">Proceder al pago</button>
+      </div>
+    </div>
+  </div>
+
+<section id="inicio">
+<div id="seccion-titulo">
+  <h1 id="titulo">AutosYa! </h1> <!-- Ver si poner el nombre de la marca "AutosYa!"-->
+  <h2 id="subtitulo"> Tu mejor opcion para alquiler y compra de autos </h2> <!-- Encuentra el auto perfecto para tu viaje   Ver si poner de que trata la pagina, osea alquiler de autos-->
+</div>
+  
+</section>
+
+  
+  <section id="ficha-reserva" class="ficha-reserva">
+    <div class="contenedor-ficha">
+      <h3> Reserva tu auto </h3>
+      <form class="formulario-reserva" action="/TP_PAG_WEB/confirmacion.html" method="get">
+        <label for="fecha-inicio"> Desde: </label>
+        <input type="date" id="fecha-inicio" name="fecha-inicio" required>
+
+        <label for="fecha-final"> Hasta: </label>
+        <input type="date" id="fecha-final" name="fecha-final" required>
+
+        <label for="aeropuerto"> Aeropuerto: </label>
+        <select id="aeropuerto" name="aeropuerto" required>
+          <option value=""> Selecciona el aeropuerto </option>
+          <option value="ezeiza"> Aeropuerto Internacional Ezeiza (Buenos Aires, Argentina) </option>
+          <option value="aeroparque"> Aeroparque Internacional Jorge Newberry (Buenos Aires, Argentina) </option>
+        </select>
+
+        <label for="auto"> Auto: </label>
+        <select id="auto" name="auto" required>
+          <option value=""> Selecciona tu auto </option>
+          <optgroup label="Compacto">  
+            <option value="peugeot-208"> Peugeot 208 </option>
+            <option value="ford-focus"> Ford Focus </option>
+          </optgroup>
+          <optgroup label="Mediano">  
+            <option value="volkswagen-vento"> Volkswagen Vento </option>
+            <option value="toyota-corolla"> Toyota Corolla </option>
+          </optgroup>
+          <optgroup label="Economico">  
+            <option value="renault-kwid"> Renault Kwid </option>
+            <option value="fiat-cronos"> Fiat Cronos </option>
+          </optgroup>
+          <optgroup label="SUV">  
+            <option value="toyota-sw4"> Toyota SW4 </option>
+            <option value="chevrolet-tracker"> Chevrolet Tracker </option>
+          </optgroup>
+          <optgroup label="Deportivo">  
+            <option value="audi-sq3"> Audi SQ3 </option>
+            <option value="bmw-340i"> BMW M340i </option>
+          </optgroup>
+          <optgroup label="Elite">  
+            <option value="porsche-911"> Porsche 911 </option>
+          </optgroup>
+        </select>
+
+        <label for="horario"> Hora a retirar: </label>
+        <select id="hora" name="hora" required>
+          <option value=""> Selecciona un horario </option>
+          <option value="mañana"> Mañana </option>
+          <option value="tarde"> Tarde </option>
+          <option value="noche"> Noche </option>
+        </select>
+
+        <label for="nombre-completo"> Nombre Completo: </label>
+        <input type="text" id="nombre-completo" name="nombre-completo" required>
+
+        <label for="email"> Email: </label>
+        <input type="email" id="email" name="email" required>
+
+
+        <button type="submit" class="boton-reserva"> Confirmar Reserva</button>
+      </form>
+    </div>
+  </section>
+
+
+  <hr>
+
+  <section id="condiciones">
+  <div class="sector1">
+    <h3> Requisitos para alquilar autos</h3>
+      <div class="contenedor">
+      <div class="caja">
+        <h5> Edad minima</h5>
+        <p> La edad minima para alquilar un auto es de 21 años. Si el conductor es menor de 25 años, puede estar sujeto a un cargo adicional por seguro juvenil</p>
+      </div>
+      <div class="caja">
+        <h5> Licencia de conducir</h5>
+        <p> Se requiere una licencia de conducir valida y vigente. Si la licencia esta en un idioma diferente al español o ingles, sera necesario presentar una traduccion oficial </p>
+      </div>
+      <div class="caja">
+        <h5> Pasaporte/DNI vigente</h5>
+        <p> Es obligatorio presentar un pasaporte o DNI vigente para completar el alquiler. Para clientes internacionales, el pasaporte debe ser mostrado al momento de la reserva.</p>
+      </div>
+    </div>
+  </div>
+  </section>
+
+  <hr>
+
+<section id="vehiculos">
+  <h4> Grupo de autos: </h4>
+  <div id="categorias">
+    <div class="categoria-boton" onclick="mostrarCategoria"('compacto')>
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIyGzl_4mQk2BKbV0qz6k6knzfmvgSFcQJDw&s" alt="Compacto">
+      <span> Compacto </span>
+    </div>
+    <div class="categoria-boton" onclick="mostrarCategoria"('mediano')>
+      <img src="https://media.toyota.com.ar/b90e14a0-dca9-410b-a2e9-ffd399d5edd1.png" alt="Mediano">
+      <span> Mediano </span>
+    </div>
+    <div class="categoria-boton" onclick="mostrarCategoria"('economico')>
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRC0ZHNuGdwcQOLL-7smMPD42gp4YxEXku4Sg&s" alt="Economico">
+      <span> Economico </span>
+    </div>
+    <div class="categoria-boton" onclick="mostrarCategoria"('suv')>
+      <img src="https://media.toyota.com.ar/9c745eba-bfa4-4ced-9e34-6922fc532c25.png" alt="SUV">
+      <span> SUV </span>
+    </div>
+    <div class="categoria-boton" onclick="mostrarCategoria"('deportivo')>
+      <img src="https://vehicle-images.dealerinspire.com/stock-images/chrome/241ceb6a279037fd6712a73e12ee2f3f.png" alt="Deportivo">
+      <span> Deportivo </span>
+    </div>
+    <div class="categoria-boton" onclick="mostrarCategoria"('elite')>
+      <img src="https://gld-creative.s3.us-west-2.amazonaws.com/2024-porsche-911-targa-4-04d98670e0ac-600x300.png" alt="Elite">
+      <span> Elite </span>
+    </div>
+
+  <div id="resultado"> </div>
+</section>
+
+  <hr>
+<section id="ubicaciones">
+  <div id="aeropuertos">
+    <h4>Aeropuertos en los que trabajamos:</h4>
+    <ul>
+      <li class="airport">
+        <img src="https://cdn.icon-icons.com/icons2/3002/PNG/512/airplane_icon_188127.png" alt="Aeropuerto Ezeiza">
+        <a href="https://www.aeropuertosargentina.com/ezeiza/ComoLlego" target="_blank"> Aeropuerto Internacional Ezeiza (Buenos Aires, Argentina) </a>
+      </li>
+      <li class="airport">
+        <img src="https://cdn.icon-icons.com/icons2/3002/PNG/512/airplane_icon_188127.png" alt="Aeropuerto Aeroparque">
+        <a href="https://www.aeropuertosargentina.com/aeroparque/ComoLlego" target="_blank"> Aeroparque Internacional Jorge Newberry (Buenos Aires, Argentina) </a>
+      </li>
+    </ul>
+  </div>
+</section>
+</ul>
+
+<footer>
+<section id="contacto">
+  <div class="contacto">
+    <p> Contacto para consultas:</p>
+    <p> Email: spearson@itba.edu.ar</p>
+  </div>
+  <div class="formulario-de-contacto">
+    <form action="consulta.html" method="get">
+      <label for="nombre"> Nombre: </label>
+      <input type="text" id="nombre" name="nombre" required>
+
+      <label for="email"> Email: </label>
+      <input type="text" id="email" name="email" required>
+
+      <label for="mensaje"> Mensaje: </label>
+      <textarea id="mensaje" name="mensaje" rows="3"></textarea>
+
+      <button type="submit" class="boton-footer"> Enviar </button>
+    </form>
+  </div>
+  <div class="copyright">
+    <p>&copy; 2024 Alquiler de Autos. Todos los derechos reservados</p>
+    <p> Contactanos 0800-332-2998</p>
+  </div>
+</section>
+
+</footer>
+<script src="TP(JS).js"></script>
+</body>
+</html>
+
